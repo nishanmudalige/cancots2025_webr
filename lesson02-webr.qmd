@@ -166,17 +166,84 @@ Let's see if there is a difference between the flipper length
 of male and female flipper lengths:
 
 ```{webr-r}
-Adelie %>% ggplot(aes(x = body_mass_g, y = flipper_length_mm, fill = sex)) +
-  geom_point() +
+Adelie %>% ggplot(aes(x = body_mass_g, 
+                      y = flipper_length_mm)) +
+  geom_point(aes(colour = factor(sex))) +
   xlab("Body mass (g)") +
   ylab("Flipper Length (mm)") +
   ggtitle("Scatter plot of Flipper Length vs. Body mass \nfor the Adelie Penguins") +
-  theme(plot.title = element_text(hjust = 0.5))
+  theme(plot.title = element_text(hjust = 0.5)) +
+  theme(legend.position="bottom") +
+  labs(colour = "Sex")
 ```
 
+There appers to be a difference for male and female penguins.
+Let's create a new model with `sex` as an indicator variable.
 
+$$
+  \hat{y}_{\text{flipper length}} = \hat{\beta}_0 
+    + \hat{\beta}_{\text{mass}} x_{\text{mass}}
+    + \hat{\beta}_{\text{sex}} x_{\text{sex}}
+$$
+where
 
+$$
+x_{\text{sex}} = 
+  \begin{cases}
+    1, \text{ if sex is } \texttt{male}; \\
+    0, \text{ if sex is } \texttt{female}
+  \end{cases}
+$$
 
+```{webr-r}
+Adelie_indicator = lm(flipper_length_mm ~ body_mass_g + sex, data = Adelie)
+
+summary(Adelie_indicator)
+```
+
+From the output above, we see our model is
+
+$$
+  \hat{y}_{\text{flipper length}} = 165.2 
+    + 0.006 x_{\text{mass}}
+    + 0.344 x_{\text{sex}}
+$$
+
+If we add both lines to the scatter plot we get the following.
+
+```{webr-r}
+library(ggplot2)
+library(dplyr)
+library(palmerpenguins)
+
+penguins %>%
+  filter(species == "Adelie", !is.na(sex)) %>%
+  ggplot(aes(x = body_mass_g,
+             y = flipper_length_mm,
+             color = sex)) +
+  geom_point(alpha = 0.7) +
+  geom_smooth(
+    method    = "lm",
+    se        = FALSE,
+    fullrange = TRUE            # ← extend lines to full x–axis limits
+  ) +
+  labs(
+    title    = "Flipper Length vs Body Mass for Adelie Penguins",
+    subtitle = "Extended regression lines by sex",
+    x        = "Body mass (g)",
+    y        = "Flipper length (mm)",
+    color    = "Sex"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.title    = element_text(hjust = 0.5, size = 16, face = "bold"),
+    plot.subtitle = element_text(hjust = 0.5),
+    legend.position = "bottom"
+  )
+)
+```
+
+From both the plot and the R output, we observe the itnteraction effect is not significant.
 
 
 <!--
