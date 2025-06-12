@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Dave Riegert">
+<meta name="author" content="Your name here">
 
-<title>Week 01</title>
+<title>A WebR Template</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,17 +24,17 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="lesson01-webr_files/libs/clipboard/clipboard.min.js"></script>
-<script src="lesson01-webr_files/libs/quarto-html/quarto.js" type="module"></script>
-<script src="lesson01-webr_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="lesson01-webr_files/libs/quarto-html/popper.min.js"></script>
-<script src="lesson01-webr_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="lesson01-webr_files/libs/quarto-html/anchor.min.js"></script>
-<link href="lesson01-webr_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="lesson01-webr_files/libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="lesson01-webr_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="lesson01-webr_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="lesson01-webr_files/libs/bootstrap/bootstrap-81267100e462c21b3d6c0d5bf76a3417.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="lesson02-webr_files/libs/clipboard/clipboard.min.js"></script>
+<script src="lesson02-webr_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="lesson02-webr_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="lesson02-webr_files/libs/quarto-html/popper.min.js"></script>
+<script src="lesson02-webr_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="lesson02-webr_files/libs/quarto-html/anchor.min.js"></script>
+<link href="lesson02-webr_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="lesson02-webr_files/libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="lesson02-webr_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="lesson02-webr_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="lesson02-webr_files/libs/bootstrap/bootstrap-81267100e462c21b3d6c0d5bf76a3417.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/monaco-editor@0.47.0/min/vs/editor/editor.main.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   
@@ -313,7 +313,7 @@ iframe.qwebr-output-code-browse {
 // Document level settings ----
 
 // Determine if we need to install R packages
-globalThis.qwebrInstallRPackagesList = ['tibble', 'ggplot2'];
+globalThis.qwebrInstallRPackagesList = ['tibble', 'ggplot2', 'palmerpenguins', 'skimr', 'dplyr', 'mosaic'];
 
 // Specify possible locations to search for the repository
 globalThis.qwebrPackageRepoURLS = ['https://repo.r-wasm.org/'];
@@ -335,7 +335,7 @@ globalThis.qwebrCustomizedWebROptions = {
 };
 
 // Store cell data
-globalThis.qwebrCellDetails = [{"code":"library(dplyr)\nlibrary(ggplot2)","id":1,"options":{"autorun":"true","classes":"","comment":"","context":"setup","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-1","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"data <- mtcars","id":2,"options":{"autorun":"true","classes":"","comment":"","context":"setup","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-2","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"summary_stats <- data %>%\n  summarise(\n    mean_mpg = mean(mpg),\n    median_mpg = median(mpg),\n    sd_mpg = sd(mpg),\n    count = n()\n  )\n\nprint(summary_stats)","id":3,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-3","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"group_stats <- data %>%\n  group_by(cyl) %>%\n  summarise(\n    mean_mpg = mean(mpg),\n    median_mpg = median(mpg),\n    sd_mpg = sd(mpg),\n    count = n()\n  )\n\nprint(group_stats)","id":4,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-4","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"ggplot(data, aes(x = wt, y = mpg)) +\n  geom_point() +\n  labs(title = \"Scatter plot of MPG vs Weight\", x = \"Weight (1000 lbs)\", y = \"Miles per Gallon\")","id":5,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-5","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"ggplot(data, aes(x = factor(cyl), y = mpg)) +\n  geom_boxplot() +\n  labs(title = \"Boxplot of MPG by Number of Cylinders\", x = \"Number of Cylinders\", y = \"Miles per Gallon\")","id":6,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-6","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"# Compute the mean horsepower","id":7,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-7","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}}];
+globalThis.qwebrCellDetails = [{"code":"penguins = penguins %>% filter(complete.cases(.))\n\nglimpse(penguins)","id":1,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-1","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"Adelie =  penguins %>% filter(species == \"Adelie\") %>% mutate(species = as.character(species))\n\nfavstats(body_mass_g ~ species + sex, data = Adelie, var.equal = T)","id":2,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-2","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"Adelie %>% ggplot(aes(x = body_mass_g, fill = sex)) + \n  geom_boxplot() +\n  coord_flip()","id":3,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-3","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"  Adelie %>% ggplot(aes(x = body_mass_g, fill = sex)) + \n  geom_histogram(alpha = 0.5)","id":4,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-4","message":"false","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"t.test(Adelie$body_mass_g ~ Adelie$sex)","id":5,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-5","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"Adelie %>% ggplot(aes(x = body_mass_g, y = flipper_length_mm)) +\n  geom_point(col=\"#F8766D\") +\n  xlab(\"Body mass (g)\") +\n  ylab(\"Flipper Length (mm)\") +\n  ggtitle(\"Scatter plot of Flipper Length vs. Body mass \\nfor the Adelie Penguins\") +\n  theme(plot.title = element_text(hjust = 0.5))","id":6,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-6","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"Adelie_lm = lm(flipper_length_mm ~ body_mass_g, data = Adelie)\n\nsummary(Adelie_lm)","id":7,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-7","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"Adelie %>% ggplot(aes(x = body_mass_g, y = flipper_length_mm)) +\n  geom_point(col = \"#F8766D\") +\n  geom_smooth(method = 'lm', formula = y ~ x, col = \"#F8766D\", se = F) + \n  xlab(\"Body mass (g)\") +\n  ylab(\"Flipper Length (mm)\") +\n  ggtitle(\"Scatter plot of Flipper Length vs. Body mass \\nfor the Adelie Penguins\") +\n  theme(plot.title = element_text(hjust = 0.5))","id":8,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-8","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}},{"code":"Adelie %>% ggplot(aes(x = body_mass_g, y = flipper_length_mm, fill = sex)) +\n  geom_point() +\n  xlab(\"Body mass (g)\") +\n  ylab(\"Flipper Length (mm)\") +\n  ggtitle(\"Scatter plot of Flipper Length vs. Body mass \\nfor the Adelie Penguins\") +\n  theme(plot.title = element_text(hjust = 0.5))","id":9,"options":{"autorun":"false","classes":"","comment":"","context":"interactive","dpi":72,"editor-font-scale":"1","editor-max-height":"","editor-quick-suggestions":"false","editor-word-wrap":"true","fig-cap":"","fig-height":5,"fig-width":7,"label":"unnamed-chunk-9","message":"true","out-height":"","out-width":"700px","output":"true","read-only":"false","results":"markup","warning":"true"}}];
 
 </script>
 <script type="module">
@@ -1589,6 +1589,35 @@ globalThis.qwebrExecuteCode = async function (
 
 </script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -1600,7 +1629,13 @@ globalThis.qwebrExecuteCode = async function (
     <h2 id="toc-title">Table of Contents</h2>
    
   <ul class="collapse">
-  <li><a href="#load-necessary-packages" id="toc-load-necessary-packages" class="nav-link active" data-scroll-target="#load-necessary-packages">Load necessary packages</a></li>
+  <li><a href="#introduction-to-web-r" id="toc-introduction-to-web-r" class="nav-link active" data-scroll-target="#introduction-to-web-r">Introduction to Web-R</a></li>
+  <li><a href="#a-sample-lecture-for-an-introduction-to-regression" id="toc-a-sample-lecture-for-an-introduction-to-regression" class="nav-link" data-scroll-target="#a-sample-lecture-for-an-introduction-to-regression">A Sample Lecture for an Introduction to Regression</a>
+  <ul class="collapse">
+  <li><a href="#exploratory-data-analysis" id="toc-exploratory-data-analysis" class="nav-link" data-scroll-target="#exploratory-data-analysis">Exploratory data analysis</a></li>
+  <li><a href="#sample-hypothesis-test" id="toc-sample-hypothesis-test" class="nav-link" data-scroll-target="#sample-hypothesis-test">2-Sample Hypothesis Test</a></li>
+  <li><a href="#simple-linear-regression" id="toc-simple-linear-regression" class="nav-link" data-scroll-target="#simple-linear-regression">Simple Linear Regression</a></li>
+  </ul></li>
   </ul>
 </nav>
 </div>
@@ -1894,8 +1929,7 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Week 01</h1>
-<p class="subtitle lead">Playing around</p>
+<h1 class="title">A WebR Template</h1>
 </div>
 
 
@@ -1904,11 +1938,11 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
   <div class="quarto-title-meta-heading">Affiliation</div>
   
     <div class="quarto-title-meta-contents">
-    <p class="author">Dave Riegert </p>
+    <p class="author">Your name here </p>
   </div>
   <div class="quarto-title-meta-contents">
         <p class="affiliation">
-            Trent University
+            Your Institution
           </p>
       </div>
   </div>
@@ -1925,44 +1959,113 @@ globalThis.qwebrCreateMonacoEditorInstance = function (cellData) {
 </header>
 
 
-<p>Objective Learn how to compute summary statistics and create basic plots using dplyr and ggplot2, two core packages from the tidyverse.</p>
-<ol type="1">
-<li>Setup</li>
-</ol>
-<section id="load-necessary-packages" class="level1">
-<h1>Load necessary packages</h1>
+<section id="introduction-to-web-r" class="level1">
+<h1>Introduction to Web-R</h1>
+<p>Content goes here</p>
+</section>
+<section id="a-sample-lecture-for-an-introduction-to-regression" class="level1">
+<h1>A Sample Lecture for an Introduction to Regression</h1>
+<p>This is a sample lecture on regression. For this example, we set <code>packages: ["tibble", "dplyr", "ggplot2", "palmerpenguins", "mosaic]</code>.</p>
+<p>This example is on the <code>palmerpenguins</code> data set.</p>
+<section id="exploratory-data-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="exploratory-data-analysis">Exploratory data analysis</h2>
+<p>Let’s examine the data set. For simplicity, we will use complete cases for this tutorial.</p>
 <div id="qwebr-insertion-location-1"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<ol start="2" type="1">
-<li>Example Data</li>
-</ol>
-<p>We’ll use the built-in mtcars dataset for demonstration.</p>
+</section>
+<section id="sample-hypothesis-test" class="level2">
+<h2 class="anchored" data-anchor-id="sample-hypothesis-test">2-Sample Hypothesis Test</h2>
+<p>We would like to perform a t-test on the body mass of male and female Adelie penguins. Let’s start with some initial data analysis.</p>
 <div id="qwebr-insertion-location-2"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<ol start="3" type="1">
-<li>Summary Statistics</li>
-</ol>
-<p>Calculate mean, median, standard deviation, and count for mpg (miles per gallon).</p>
+<p>let’s examine side-by-side boxplots and histograms of the mass of male and female Adelie penguins. For simplicity, we’ll remove the data points where information is missing.</p>
 <div id="qwebr-insertion-location-3"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>You can also group by a categorical variable, e.g., number of cylinders (cyl):</p>
 <div id="qwebr-insertion-location-4"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<ol start="4" type="1">
-<li>Basic Plots with ggplot2</li>
-</ol>
-<p>Scatter plot of mpg vs wt (weight):</p>
+<p>Let’s conduct the following test on whether the mean body mass of male Adelie penguins is equal to the mean body mass of female Adelie penguins, or whether there is a difference.</p>
+<p>The null and alternative hypothesis are <span class="math display">\[
+  H_{0}: \mu_{\text{male}} = \mu_{\text{female}}
+  \quad
+  H_{a}: \mu_{\text{male}} \neq \mu_{\text{female}}
+\]</span></p>
 <div id="qwebr-insertion-location-5"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<p>Boxplot of mpg by number of cylinders:</p>
+</section>
+<section id="simple-linear-regression" class="level2">
+<h2 class="anchored" data-anchor-id="simple-linear-regression">Simple Linear Regression</h2>
+<p>Recall the simple linear regression model is</p>
+<p><span class="math display">\[
+y = \beta_{0} + \beta_{1}x + \varepsilon, \quad \varepsilon \sim N(0, \sigma^2)
+\]</span> This is estimated using <span class="math display">\[
+\hat{y} = \hat{\beta}_{0} + \hat{\beta}_{1}x
+\]</span></p>
+<p>For the Adelie penguins, let’s examine whether there is a linear relationship between the <code>bill_length</code> and <code>body_mass_g</code> of the Adelie penguins. We’ll start with a scatterplot of the data.</p>
 <div id="qwebr-insertion-location-6"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
-<ol start="5" type="1">
-<li>Exercise (Optional)</li>
-</ol>
-<p>Compute the mean horsepower (hp) for each cylinder group and create a bar plot of these means.</p>
+<p>There appears to be a positive linear relationship between body mass and flipper length. Let’s get the least squares regression line:</p>
 <div id="qwebr-insertion-location-7"></div>
 <noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>The equation of the regression line is:</p>
+<p><span class="math display">\[
+  \hat{y}_{\text{flipper length}} = 165.2
+    + 0.007 x_{\text{mass}}
+\]</span></p>
+<p>Let’s superimpose the least squares line on the plot:</p>
+<div id="qwebr-insertion-location-8"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<p>Let’s see if there is a difference between the flipper length of male and female flipper lengths:</p>
+<div id="qwebr-insertion-location-9"></div>
+<noscript>Please enable JavaScript to experience the dynamic code cell content on this page.</noscript>
+<!--
+## A Slide Title
+
+```egdrmjcz
+#| context: setup
+#| autorun: true
+set.seed(1234)
+```
+
+```egdrmjcz
+#| autorun: true
+
+atib <- tibble(x = rnorm(10), y = 2 + 4*x + rnorm(10))
+atib %>% ggplot(aes(x = x, y = y)) + 
+  geom_point()
+```
+
+## A second slide {style="font-size:70%;" .scrollable}
+
+
+```egdrmjcz
+#| autorun: false
+
+________ %>% ggplot(aes(x = ____)) + 
+  geom_histogram(colour = "white", bins = 4)
+```
+
+
+```egdrmjcz
+p = gapminder %>%
+  filter(year==1977) %>%
+  ggplot( aes(gdpPercap, lifeExp, size = pop, color=continent)) +
+  geom_point() +
+  theme_bw()
+
+ggplotly(p)
+```
+
+## More Drawing Here
+
+- item one
+- item two
+- item three
+- 90 degrees
+- 180 degrees
+- 270 degrees
+- 360 degrees
+-->
+</section>
 </section>
 
 </main>
