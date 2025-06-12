@@ -212,10 +212,6 @@ $$
 If we add both lines to the scatter plot we get the following.
 
 ```{webr-r}
-library(ggplot2)
-library(dplyr)
-library(palmerpenguins)
-
 penguins %>%
   filter(species == "Adelie", !is.na(sex)) %>%
   ggplot(aes(x = body_mass_g,
@@ -225,7 +221,7 @@ penguins %>%
   geom_smooth(
     method    = "lm",
     se        = FALSE,
-    fullrange = TRUE            # ← extend lines to full x–axis limits
+    fullrange = TRUE
   ) +
   labs(
     title    = "Flipper Length vs Body Mass for Adelie Penguins",
