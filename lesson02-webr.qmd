@@ -236,7 +236,6 @@ penguins %>%
     plot.subtitle = element_text(hjust = 0.5),
     legend.position = "bottom"
   )
-)
 ```
 
 From both the plot and the R output, we observe the itnteraction effect is not significant.
