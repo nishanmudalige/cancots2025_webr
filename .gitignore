@@ -1,5 +1,6 @@
 # additions
 *.zip
+old_README.md
 
 # History files
 .Rhistory
