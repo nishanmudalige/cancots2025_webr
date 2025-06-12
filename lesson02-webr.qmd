@@ -1,5 +1,5 @@
 ---
-title: "A WebR Template"
+title: "A WebR Template for a Sample Lesson"
 subtitle: ""
 author: "Your name here"
 institute: "Your Institution"
@@ -22,10 +22,6 @@ webr:
 slide-number: true
 smaller: false
 ---
-
-# Introduction to Web-R
-
-Content goes here
 
 ```{r}
 #| include: false
