@@ -3,6 +3,8 @@ title: "A WebR Template for a Sample Lesson"
 subtitle: ""
 author: "Your name here"
 institute: "Your Institution"
+resources:
+  - images/adeliepenguin.jpg
 execute: 
   echo: true
 format:
@@ -44,10 +46,16 @@ theme_set(theme_bw())
 
 This is a sample lecture on regression. For this example, we set `packages: ["tibble", "dplyr", "ggplot2", "palmerpenguins", "mosaic]`.
 
-This example is on the `palmerpenguins` data set.
-
 
 ## Exploratory data analysis
+
+This example is on the `palmerpenguins` data set.
+
+![](images/adeliepenguin.jpg){ 
+  width="40%" 
+  fig-align="center" 
+  alt="Adelie Penguin.jpg"
+  fig-cap="An Adelie penguin (creative commons license)" }
 
 Let's examine the data set.
 For simplicity, we will use complete cases for this tutorial.
@@ -76,7 +84,8 @@ For simplicity, we'll remove the data points where information is missing.
 
 
 ```{webr-r}
-Adelie %>% ggplot(aes(x = body_mass_g, fill = sex)) + 
+Adelie %>% 
+  ggplot(aes(x = body_mass_g, fill = sex)) + 
   geom_boxplot() +
   coord_flip()
 ```
@@ -114,7 +123,7 @@ t.test(Adelie$body_mass_g ~ Adelie$sex)
 Recall the simple linear regression model is
 
 $$
-y = \beta_{0} + \beta_{1}x + \varepsilon, \quad \varepsilon \sim N(0, \sigma^2)
+Y = \beta_{0} + \beta_{1} X + \varepsilon, \quad \varepsilon \sim N(0, \sigma^2)
 $$
 This is estimated using
 $$
@@ -126,7 +135,8 @@ For the Adelie penguins, let's examine whether there is a linear relationship be
 We'll start with a scatterplot of the data.
 
 ```{webr-r}
-Adelie %>% ggplot(aes(x = body_mass_g, y = flipper_length_mm)) +
+Adelie %>% 
+  ggplot(aes(x = body_mass_g, y = flipper_length_mm)) +
   geom_point(col="#F8766D") +
   xlab("Body mass (g)") +
   ylab("Flipper Length (mm)") +
@@ -153,7 +163,9 @@ $$
 Let's superimpose the least squares line on the plot:
 
 ```{webr-r}
-Adelie %>% ggplot(aes(x = body_mass_g, y = flipper_length_mm)) +
+#| message: false
+Adelie %>% 
+  ggplot(aes(x = body_mass_g, y = flipper_length_mm)) +
   geom_point(col = "#F8766D") +
   geom_smooth(method = 'lm', formula = y ~ x, col = "#F8766D", se = F) + 
   xlab("Body mass (g)") +
@@ -166,8 +178,8 @@ Let's see if there is a difference between the flipper length
 of male and female flipper lengths:
 
 ```{webr-r}
-Adelie %>% ggplot(aes(x = body_mass_g, 
-                      y = flipper_length_mm)) +
+Adelie %>% 
+  ggplot(aes(x = body_mass_g, y = flipper_length_mm)) +
   geom_point(aes(colour = factor(sex))) +
   xlab("Body mass (g)") +
   ylab("Flipper Length (mm)") +
@@ -214,14 +226,9 @@ If we add both lines to the scatter plot we get the following.
 ```{webr-r}
 penguins %>%
   filter(species == "Adelie", !is.na(sex)) %>%
-  ggplot(aes(x = body_mass_g,
-             y = flipper_length_mm,
-             color = sex)) +
+  ggplot(aes(x = body_mass_g, y = flipper_length_mm, color = sex)) +
   geom_point(alpha = 0.7) +
-  geom_smooth(
-    method    = "lm",
-    se        = FALSE,
-    fullrange = TRUE
+  geom_smooth(method = "lm", se = FALSE, fullrange = TRUE
   ) +
   labs(
     title    = "Flipper Length vs Body Mass for Adelie Penguins",
