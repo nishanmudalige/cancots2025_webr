@@ -25,7 +25,7 @@ This repository contains WebR templates and instructions from CanCOTS 2025 in Mo
 
 ---
 
-## Delivarable: Sample Course (Slides, Activities, Tutorials)
+## Deliverable: Sample Course (Slides, Activities, Tutorials)
 
 The deliverable for the sub-group is a skeleton of a course consisting of
 
@@ -71,7 +71,7 @@ You will need the following:
         ```bash
         quarto install tinytex
         ```
-    - Mac: Open the Terminal (can be found in Launchpad and run:
+    - Mac: Open the Terminal (can be found in Launchpad) and run:
         ```bash
         quarto uninstall tinytex
         ```
@@ -92,7 +92,7 @@ Next, fork the repository to your own GitHub account by clicking the "Fork" butt
 ## Making the Document Available
 
 1. Go to your forked repository on Github.
-2. Replace the contents of README.md (THIS FILE, maybe!) with your own content.
+2. Replace the contents of `README.md` (THIS FILE, maybe!) with your own content.
 3. Click on the repository settings (next to "Insights")
 4. Click on "Pages" on the left menu.
 5. Ensure you have "Deploy from a branch" selected and then under "Branch", select "main". Click "Save".
@@ -110,7 +110,7 @@ In the command line, run:
 ```bash
 quarto uninstall tinytex
 ```
-5. Install the latest versino of TinyTex:
+5. Install the latest version of TinyTex:
 ```bash
 quarto install tinytex
 ```
